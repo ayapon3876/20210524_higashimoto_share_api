@@ -31,11 +31,12 @@ class SharesController extends Controller
     public function store(Request $request)
     {
         $item = new Share;
-        $item->user_id = $request;
+        $item->user_id = $request->user_id;
         $item->share = $request->share;
         $item->save();
         return response()->json([
             'message' => 'Share created successfully',
+            'data' => $item
         ], 200);
     }
 

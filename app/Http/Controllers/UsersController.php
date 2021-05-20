@@ -9,7 +9,7 @@ class UsersController extends Controller
 {
     public function get(Request $request)
     {
-        if($request->has('email')) {
+        if ($request->has('email')) {
             $items = DB::table('users')->where('email', $request->email)->get();
             return response()->json([
                 'message' => 'User got successfully',
